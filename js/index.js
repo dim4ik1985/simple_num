@@ -1,5 +1,5 @@
 function getPrime(n) {
-  const counter = [];
+  const result = [];
 
   function isSimple(num) {
     for (let i = 2; i < num; i++) {
@@ -10,18 +10,19 @@ function getPrime(n) {
     return true;
   }
 
-  for (let i = 2; i <= n; i++) {
+  let counter = 0;
+  for (let i = 2; n > counter; i++) {
     if (isSimple(i)) {
-      counter.push(i);
+      result.push(i);
+      counter++;
     }
   }
-
-  return counter
+  return result;
 }
 
 
 console.time('getPrime');
-console.log(`Список простых чисел ${getPrime(process.argv[2])}`);
+console.log(getPrime(process.argv[2]));
 console.timeEnd('getPrime')
 
 
